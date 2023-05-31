@@ -1,0 +1,13 @@
+.cart-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+  }
+  
+  .cart-icon svg {
+    color: #555555;
+  }
