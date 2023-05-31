@@ -1,25 +1,28 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStore } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import CartIcon from './CartIcon';
 
-
-const Header = () => {
+const Header = ({ cartItemCount }) => {
   return (
     <header>
       <div className="header-content">
-        <div className="icon-container">
-          <FontAwesomeIcon icon={faStore} className="store-icon" />
-        </div>
         <div className="text-container">
           <span className="store-name">e-Com</span>
         </div>
         <nav>
-          {/* Add your navigation links here */}
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
         </nav>
+        <CartIcon itemCount={cartItemCount} />
       </div>
     </header>
   );
 };
 
 export default Header;
-

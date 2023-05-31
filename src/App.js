@@ -1,32 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
-
-function Home() {
-  return <div>Home</div>;
-}
+import ContactPage from './pages/ContactPage';
+import CheckoutPage from './pages/CheckoutPage';
+import CheckoutSuccessPage from './pages/CheckoutSuccessPage';
+import Layout from './components/Layout';
 
 function App() {
+  const cartItemCount = 0; // Replace with your logic to get the actual cart item count
+
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/products">Product List</Link> {/* Update the link URL */}
-            </li>
-          </ul>
-        </nav>
+      <Layout cartItemCount={cartItemCount}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<HomePage />} /> {/* Update the route path */}
-          <Route path="/product/:id" element={<ProductPage />} /> {/* Update the route path */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/checkout/success" element={<CheckoutSuccessPage />} />
         </Routes>
-      </div>
+      </Layout>
     </Router>
   );
 }
