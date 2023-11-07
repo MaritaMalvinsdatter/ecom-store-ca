@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import CartIcon from './CartIcon';
-import styles from '../components/styles/Header.module.css'; 
+import styles from '../styles/Header.module.css'; 
 
 const Header = ({ cartItemCount }) => {
   return (
