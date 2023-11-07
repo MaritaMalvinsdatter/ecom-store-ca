@@ -6,6 +6,9 @@ import ContactPage from './pages/ContactPage';
 import CheckoutPage from './pages/CheckoutPage';
 import CheckoutSuccessPage from './pages/CheckoutSuccessPage';
 import Layout from './components/Layout';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   const cartItemCount = 0; // Replace with your logic to get the actual cart item count
