@@ -1,26 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 import CartIcon from './CartIcon';
+import styles from '../components/styles/Header.module.css'; 
 
 const Header = ({ cartItemCount }) => {
   return (
     <header>
-      <div className="header-content">
-        <div className="text-container">
-          <span className="store-name">e-Com</span>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
-        <CartIcon itemCount={cartItemCount} />
-      </div>
+      <Navbar bg="light" expand="lg" className={styles.header}>
+        <Navbar.Brand href="/" className={styles.storeName}>e-Com</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <div className="d-flex w-100 justify-content-end">
+            <Nav className="align-items-center">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/contact">Contact</Nav.Link>
+            </Nav>
+            <div className={styles.cartContainer}>
+              <CartIcon itemCount={cartItemCount} />
+            </div>
+          </div>
+        </Navbar.Collapse>
+      </Navbar>
     </header>
   );
 };
