@@ -1,0 +1,13 @@
+.productList {
+    margin: 1rem;
+  }
+  
+  .productCard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .productCard img {
+    object-fit: cover; /* Adjust as needed */
+  }
