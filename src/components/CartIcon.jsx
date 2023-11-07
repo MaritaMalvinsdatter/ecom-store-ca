@@ -1,12 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import styles from '../components/styles/Header.module.css'; 
 
 const CartIcon = ({ itemCount }) => {
   return (
-    <div className="cart-icon">
-      <FontAwesomeIcon icon={faShoppingCart} />
-      {itemCount > 0 && <span className="item-count">{itemCount}</span>}
+    <div>
+      <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+      {itemCount > 0 && <span className={styles.cartBadge}>{itemCount}</span>}
     </div>
   );
 };
