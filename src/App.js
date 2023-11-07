@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  const cartItemCount = 0; // Replace with your logic to get the actual cart item count
+  const cartItemCount = 0; 
 
   return (
     <Router>
