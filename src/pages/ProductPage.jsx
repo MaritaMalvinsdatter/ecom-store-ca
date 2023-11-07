@@ -1,12 +1,14 @@
 // ProductPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, Container, Row, Col, ListGroup, Badge } from 'react-bootstrap';
+import { Card, Container, Row, Col, ListGroup, Badge, Button } from 'react-bootstrap';
+import { useCart } from '../components/ShoppingCart';
 
 function ProductPage() {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const { addToCart } = useCart();
 
   const { id } = useParams();
 
@@ -29,6 +31,13 @@ function ProductPage() {
 
     fetchProduct();
   }, [id]);
+
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      quantity: 1 
+    });
+  };
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -77,6 +86,7 @@ function ProductPage() {
                 {renderPrice()}
                 <ListGroup.Item>Rating: {product.rating} stars</ListGroup.Item>
               </ListGroup>
+              <Button onClick={handleAddToCart}>Add to Cart</Button>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Tags: {product.tags.join(', ')}</small>
