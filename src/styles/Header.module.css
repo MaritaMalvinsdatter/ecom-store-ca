@@ -1,58 +1,43 @@
 /* Header.module.css */
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #f8f9fa;
-  }
-  
-  .navContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  .storeName {
-    margin-right: 2rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .cartContainer {
-    position: relative;
-  }
-  
-  .cartBadge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-  }
+.navbar {
+  background-color: #e6f2e6; 
+  border-bottom: 1px solid #ccc; 
+}
 
-  .cartBadge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-  }
-  
+.logoLink {
+  font-family: 'Lucida Bright', serif;
+  color: #113A8C;
+  text-decoration: none;
+  font-size: 2rem; 
+  font-weight: bold;
+}
+
+.navLink {
+  color: #333;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem; 
+}
+
+.cartContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 15px; 
+}
+
+.cartBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
