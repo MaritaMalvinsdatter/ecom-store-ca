@@ -86,7 +86,7 @@ const ContactPage = () => {
             <Button type="submit" className={styles.submitButton}>Submit</Button>
           </div>
         </Form>
-        {submitted && <Alert variant="success" className="mt-3 text-center">Yay! Your message has been sent successfully!</Alert>}
+        {submitted && <Alert variant="success" className="mt-3 text-center">Yay! Your message has been sent successfully!!</Alert>}
       </div>
     </>
   );
