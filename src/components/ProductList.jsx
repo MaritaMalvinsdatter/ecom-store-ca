@@ -16,6 +16,7 @@ function ProductList() {
           throw new Error('Failed to fetch products');
         }
         const productsData = await response.json();
+        console.log(productsData); // Log the data response
         setProducts(productsData.slice(0, 50)); // Limit to first 50 products
       } catch (error) {
         setIsError(true);
@@ -38,25 +39,26 @@ function ProductList() {
 
   return (
     <div className={styles.productList}>
-      <h2>Products</h2>
-      <Row xs={1} md={2} lg={3} className="g-4">
+      <h2 className='m-5 text-center'>Products</h2>
+        <Row xs={1} md={2} lg={4} className="gx-2 gy-2">
         {products.map((product) => (
           <Col key={product.id}>
             <Card className={styles.productCard}>
               <Card.Img variant="top" src={product.imageUrl} />
-              <Card.Body>
+              <Card.Body className={styles.productCardBody}>
                 <Card.Title>{product.title || 'Untitled'}</Card.Title>
-                <Card.Text>
+                <Card.Text className='mt-2'>
                   {product.description}
-                  <br />
-                  <strong>Price:</strong> ${product.discountedPrice || product.price}
+                </Card.Text>
+                <Card.Text className='mt-2'>
+                  <strong>Todays Price:</strong> ${product.discountedPrice || product.price}
                   <br />
                   <strong>Rating:</strong> {product.rating} stars
                 </Card.Text>
-                <Link to={`/product/${product.id}`}>
-                  <Button variant="primary">View</Button>
-                </Link>
               </Card.Body>
+              <Link to={`/product/${product.id}`}>
+                <Button variant="primary">View</Button>
+              </Link>
             </Card>
           </Col>
         ))}
