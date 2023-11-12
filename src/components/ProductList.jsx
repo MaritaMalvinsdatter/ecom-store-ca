@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import styles from '../styles/ProductList.module.css';
 
-function ProductList() {
+function ProductList({ searchTerm }) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -16,8 +16,8 @@ function ProductList() {
           throw new Error('Failed to fetch products');
         }
         const productsData = await response.json();
-        console.log(productsData); // Log the data response
-        setProducts(productsData.slice(0, 50)); // Limit to first 50 products
+        console.log(productsData); 
+        setProducts(productsData.slice(0, 50)); 
       } catch (error) {
         setIsError(true);
         console.error(error);
@@ -28,6 +28,10 @@ function ProductList() {
 
     fetchProducts();
   }, []);
+
+  const filteredProducts = products.filter(product =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -41,12 +45,12 @@ function ProductList() {
     <div className={styles.productList}>
       <h2 className='m-5 text-center'>Products</h2>
         <Row xs={1} md={2} lg={4} className="gx-2 gy-2">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <Col key={product.id}>
             <Card className={styles.productCard}>
               <Card.Img variant="top" src={product.imageUrl} />
               <Card.Body className={styles.productCardBody}>
-                <Card.Title>{product.title || 'Untitled'}</Card.Title>
+                <Card.Title>{product.title || 'No Title'}</Card.Title>
                 <Card.Text className='mt-2'>
                   {product.description}
                 </Card.Text>
