@@ -69,7 +69,25 @@ function ProductPage() {
       );
     }
   };
-  
+
+  const renderReviews = () => {
+    if (product.reviews && product.reviews.length > 0) {
+      return (
+        <Row className="justify-content-md-center mt-4">
+          <Col md={6}>
+            <h3>Reviews</h3>
+            {product.reviews.map((review) => (
+              <p key={review.id} className="mb-5">
+                <strong>{review.username}</strong>: {review.description}
+              </p>
+            ))}
+          </Col>
+        </Row>
+      );
+    }
+    return null;
+  };
+
 
   return (
     <Container>
@@ -92,20 +110,9 @@ function ProductPage() {
               <small className="text-muted">Tags: {product.tags.join(', ')}</small>
             </Card.Footer>
           </Card>
-          {product.reviews && product.reviews.length > 0 && (
-            <div className="mt-4">
-              <h3>Reviews</h3>
-              <ListGroup>
-                {product.reviews.map((review) => (
-                  <ListGroup.Item key={review.id}>
-                    <strong>{review.username}</strong>: {review.description}
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-            </div>
-          )}
         </Col>
       </Row>
+       {renderReviews()}
     </Container>
   );
 }
